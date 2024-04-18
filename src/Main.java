@@ -6,6 +6,10 @@ public class Main {
         int x;
 
         do {
+            System.out.println("Elige un número de las opciones a escoger:");
+            NP("1. Nueva partida");
+            System.out.println("2. Cargar partida");
+            CONF("3. Configuración");
             Menu("Elige un número de las opciones a escoger:");
             System.out.println("1. Nueva partida");
             MostrarMSG_CG("2. Cargar partida");
@@ -31,6 +35,14 @@ public class Main {
                     System.out.println("Opción incorrecta");
             }
         } while (x < 1 || x > 4);
+    }
+
+    private static void CONF(String x) {
+        System.out.println(x);
+    }
+
+    private static void NP(String x) {
+        System.out.println(x);
     }
 
     private static void Menu(String x) {

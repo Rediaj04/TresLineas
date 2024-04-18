@@ -9,9 +9,9 @@ public class Main {
 
         do {
             System.out.println("Elige un número de las opciones a escoger:");
-            extracted();
+            NP("1. Nueva partida");
             System.out.println("2. Cargar partida");
-            System.out.println("3. Configuración");
+            CONF("3. Configuración");
             System.out.println("4. Salir");
 
             x = sc.nextInt();
@@ -35,7 +35,11 @@ public class Main {
         } while (x < 1 || x > 4);
     }
 
-    private static void extracted() {
-        System.out.println("1. Nueva partida");
+    private static void CONF(String x) {
+        System.out.println(x);
+    }
+
+    private static void NP(String x) {
+        System.out.println(x);
     }
 }

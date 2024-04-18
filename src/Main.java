@@ -6,14 +6,10 @@ public class Main {
         int x;
 
         do {
-            System.out.println("Elige un número de las opciones a escoger:");
-            NP("1. Nueva partida");
-            System.out.println("2. Cargar partida");
-            CONF("3. Configuración");
             Menu("Elige un número de las opciones a escoger:");
-            System.out.println("1. Nueva partida");
+            NP("1. Nueva partida");
+            CONF("3. Configuración");
             MostrarMSG_CG("2. Cargar partida");
-            System.out.println("3. Configuración");
             System.out.println("4. Salir");
 
             x = sc.nextInt();

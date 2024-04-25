@@ -2,6 +2,7 @@ import jdk.jshell.spi.ExecutionControl;
 
 public class joc {
     public char[][] taulell;
+    public short turn;
 
     public void novaPartida() throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException("");

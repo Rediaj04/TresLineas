@@ -7,13 +7,13 @@ public class Main {
         int x;
 
         do {
-            tui.Menu("Elige un número de las opciones a escoger:");
-            tui.NuevaPartida("1. Nueva partida");
-            tui.CargarPartida("2. Cargar partida");
-            tui.Configuraciones("3. Configuración");
-            tui.Salir("4. Salir");
+            tui.menu("Elige un número de las opciones a escoger:");
+            tui.novaPartida("1. Nueva partida");
+            tui.carregarPartida("2. Cargar partida");
+            tui.configuracions("3. Configuración");
+            tui.sortir("4. Salir");
 
-            x = tui.OpcionElegida();
+            x = tui.OpcionEscollida();
 
             switch (x) {
                 case 1:

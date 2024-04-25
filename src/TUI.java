@@ -1,33 +1,49 @@
+import jdk.jshell.spi.ExecutionControl;
+
 import java.util.Scanner;
 
 public class TUI {
-    private final Scanner sc;
+    private Scanner sc = new Scanner(System.in);
 
-    public TUI() {
-        sc = new Scanner(System.in);
+    public void mostrarTaulell(char taulell, short torn) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
     }
 
-    public void Salir(String x) {
-        System.out.println(x);
+    public int mostrarMenu() throws ExecutionControl.NotImplementedException {throw new ExecutionControl.NotImplementedException(" ");
+    }
+    public void sortir(String x) throws ExecutionControl.NotImplementedException {throw new ExecutionControl.NotImplementedException(" ");
+
     }
 
-    public void Configuraciones(String x) {
-        System.out.println(x);
+    public void configuracions(String x) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+
     }
 
-    public void CargarPartida(String x) {
-        System.out.println(x);
+    public void carregarPartida(String x) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+
     }
 
-    public void NuevaPartida(String x) {
-        System.out.println(x);
+    public void novaPartida(String x) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+
     }
 
-    public void Menu(String x) {
-        System.out.println(x);
+    public void menu(String x) throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+
     }
 
-    public int OpcionElegida() {
+    public int OpcionEscollida() {
         return sc.nextInt();
+    }
+
+    public void fiDePartida() throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+    }
+    public void recollirJugada () throws ExecutionControl.NotImplementedException {
+        throw new ExecutionControl.NotImplementedException(" ");
+
     }
 }

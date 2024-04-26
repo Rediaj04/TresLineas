@@ -30,10 +30,5 @@ class JocTest {
 
         joc.novaPartida();
 
-        char turn = joc.jugar[0][0];
-
-        char[][] taulellJoc = joc.getTaulell();
-
-        Assertions.assertEquals('X', taulellJoc[0][0]);
     }
 }

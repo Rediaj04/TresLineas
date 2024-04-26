@@ -1,12 +1,10 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         TUI tui = new TUI();
-        joc joc = new joc();
+        Joc joc = new Joc();
         int x;
 
-        do {
+       /* do {
             tui.menu("Elige un número de las opciones a escoger:");
             tui.novaPartida("1. Nueva partida");
             tui.carregarPartida("2. Cargar partida");
@@ -32,5 +30,7 @@ public class Main {
                     System.out.println("Opción incorrecta");
             }
         } while (x < 1 || x > 4);
+
+        */
     }
 }

@@ -1,12 +1,10 @@
 import jdk.jshell.spi.ExecutionControl;
 import org.junit.jupiter.api.Assertions;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class JocTest {
 
     @org.junit.jupiter.api.Test
-    void novaPartida_taulell() throws ExecutionControl.NotImplementedException {
+    void novaPartida_taulell()  {
         Joc joc = new Joc();
         joc.novaPartida();
 
@@ -16,7 +14,7 @@ class JocTest {
     }
 
     @org.junit.jupiter.api.Test
-    void novaPartida_jugador() throws ExecutionControl.NotImplementedException {
+    void novaPartida_jugador()  {
         Joc joc = new Joc();
         joc.novaPartida();
 
@@ -24,11 +22,15 @@ class JocTest {
     }
 
     @org.junit.jupiter.api.Test
-    void jugar_partida() throws ExecutionControl.NotImplementedException {
+    void jugar_partida()  {
 
         Joc joc = new Joc();
-
         joc.novaPartida();
 
+        joc.jugar(0, 0);
+
+        char[][] taulellDespresJugada = joc.getTaulell();
+        char fichaEsperada = joc.getTurn() == 1 ? 'O' : 'X';
+        Assertions.assertEquals(fichaEsperada, taulellDespresJugada[0][0]);
     }
 }

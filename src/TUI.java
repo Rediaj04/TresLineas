@@ -39,7 +39,7 @@ public class TUI {
         return sc.nextInt();
     }
 
-    public void fiDePartida() throws ExecutionControl.NotImplementedException {
+    public void fiDePartida(short guanyador) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException(" ");
     }
     public void recollirJugada () throws ExecutionControl.NotImplementedException {

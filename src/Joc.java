@@ -16,12 +16,12 @@ public class Joc {
         this.taulell = new char[3][3];
         this.turn = 1;
     }
-    public void jugar(int fila, int columna) {
+    public void jugar(short fila, String columna) {
         char ficha = (turn == 1) ? 'X' : 'O';
-        taulell[fila][columna] = ficha;
+        taulell[fila][Integer.parseInt(columna)] = ficha;
         turn = (short) ((turn == 1) ? 2 : 1);
     }
-    public void jugadaGuanyadora(short fila, String columna){
+    public void jugadaGuanyadora(short fila, Short columna){
      boolean x;
     }
 }

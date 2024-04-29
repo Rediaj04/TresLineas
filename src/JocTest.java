@@ -27,7 +27,7 @@ class JocTest {
         Joc joc = new Joc();
         joc.novaPartida();
 
-        joc.jugar(0, 0);
+        joc.jugar((short) 0, String.valueOf(0));
 
         char[][] taulellDespresJugada = joc.getTaulell();
         char fichaEsperada = joc.getTurn() == 1 ? 'O' : 'X';

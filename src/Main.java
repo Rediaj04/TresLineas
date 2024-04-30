@@ -4,18 +4,15 @@ public class Main {
         Joc joc = new Joc();
         int x;
 
-       /* do {
-            tui.menu("Elige un número de las opciones a escoger:");
-            tui.novaPartida("1. Nueva partida");
-            tui.carregarPartida("2. Cargar partida");
-            tui.configuracions("3. Configuración");
-            tui.sortir("4. Salir");
-
-            x = tui.OpcionEscollida();
+        do {
+            tui.mostrarMenu();
+            x = tui.opcionEscollida();
 
             switch (x) {
                 case 1:
                     System.out.println("Nueva partida");
+                    joc.novaPartida();
+//                    tui.mostrarTaulell();
                     break;
                 case 2:
                     System.out.println("Cargar partida");
@@ -30,7 +27,5 @@ public class Main {
                     System.out.println("Opción incorrecta");
             }
         } while (x < 1 || x > 4);
-
-        */
     }
 }

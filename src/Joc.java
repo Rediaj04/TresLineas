@@ -13,8 +13,8 @@ public class Joc {
     }
 
     public void novaPartida()  {
-        this.taulell = new char[3][3];
-        this.turn = 1;
+        taulell = new char[3][3];
+        turn = 1;
     }
     public void jugar(short fila, String columna) {
         char ficha = (turn == 1) ? 'X' : 'O';

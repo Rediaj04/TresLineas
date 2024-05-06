@@ -38,7 +38,8 @@ class JocTest {
         char fichaEsperada = joc.getTurn() == 1 ? 'X' : 'O';
         Assertions.assertEquals(fichaEsperada, taulellDespresJugada[0][0]);
     }
-    @org.junit.jupiter.api.Test
+    @ParameterizedTest
+    @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_TaulellEnBlanc() {
         Joc joc = new Joc();
         joc.novaPartida();
@@ -61,7 +62,8 @@ class JocTest {
             }
         }
     }
-    @org.junit.jupiter.api.Test
+    @ParameterizedTest
+    @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_Jugador1Ganador() {
         Joc joc = new Joc();
         joc.novaPartida();
@@ -73,7 +75,8 @@ class JocTest {
 
         Assertions.assertTrue(joc.jugadaGuanyadora((short) 0, (short) 2));
     }
-    @org.junit.jupiter.api.Test
+    @ParameterizedTest
+    @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_Jugador2Ganador() {
         Joc joc = new Joc();
         joc.novaPartida();

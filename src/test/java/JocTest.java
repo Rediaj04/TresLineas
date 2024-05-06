@@ -50,7 +50,8 @@ class JocTest {
             }
         }
     }
-    @org.junit.jupiter.api.Test
+    @ParameterizedTest
+    @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_UnaCasellaOcupada() {
         Joc joc = new Joc();
         joc.novaPartida();

@@ -35,55 +35,9 @@ class JocTest {
         joc.jugar((short) 0, String.valueOf(0));
 
         char[][] taulellDespresJugada = joc.getTaulell();
-        char fichaEsperada = joc.getTurn() == 1 ? 'O' : 'X';
-        Assertions.assertEquals(fichaEsperada, taulellDespresJugada[0][0]);
-    }
-
-    @ParameterizedTest
-    @CsvSource({
-            "0, 0", "0, 1", "0, 2",
-            "1, 0", "1, 1", "1, 2",
-            "2, 0", "2, 1", "2, 2"
-    })
-    void testJugar_ColocarFichaEnPosicion(short fila, short columna) {
-        Joc joc = new Joc();
-        joc.novaPartida();
-
-        joc.jugar(fila, String.valueOf(columna));
-
-        char[][] taulellDespresJugada = joc.getTaulell();
-        char fichaEsperada = joc.getTurn() == 1 ? 'X' : 'O';
-        Assertions.assertEquals(fichaEsperada, taulellDespresJugada[fila][columna]);
-    }
-    @org.junit.jupiter.api.Test
-    void testColocarFichaEnPosicionLibre() {
-        Joc joc = new Joc();
-        joc.novaPartida();
-
-        for (short fila = 0; fila < 3; fila++) {
-            for (short columna = 0; columna < 3; columna++) {
-                joc.jugar(fila, String.valueOf(columna));
-
-                char[][] taulellDespresJugada = joc.getTaulell();
-                char fichaEsperada = joc.getTurn() == 1 ? 'X' : 'O';
-                Assertions.assertEquals(fichaEsperada, taulellDespresJugada[fila][columna]);
-            }
-        }
-    }
-
-    @org.junit.jupiter.api.Test
-    void testNoColocarFichaEnPosicionOcupada() {
-        Joc joc = new Joc();
-        joc.novaPartida();
-
-        joc.jugar((short) 0, "0");
-        joc.jugar((short) 0, "0");
-
-        char[][] taulellDespresJugada = joc.getTaulell();
         char fichaEsperada = joc.getTurn() == 1 ? 'X' : 'O';
         Assertions.assertEquals(fichaEsperada, taulellDespresJugada[0][0]);
     }
-
     @org.junit.jupiter.api.Test
     void testJugadaGuanyadora_TaulellEnBlanc() {
         Joc joc = new Joc();

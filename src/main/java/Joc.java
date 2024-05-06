@@ -16,9 +16,9 @@ public class Joc {
     }
 
     public void jugar(short fila, String columna) {
+        turn = (short) ((turn == 1) ? 2 : 1);
         char ficha = (turn == 1) ? 'X' : 'O';
         taulell[fila][Integer.parseInt(columna)] = ficha;
-        turn = (short) ((turn == 1) ? 2 : 1);
     }
 
     public boolean jugadaGuanyadora(short fila, short columna) {

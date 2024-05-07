@@ -5,15 +5,29 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 @Nested
 class JocTest {
 
     @org.junit.jupiter.api.Test
-    void novaPartida_taulell()  {
+    void novaPartida_taulell() {
         Joc joc = new Joc();
         joc.novaPartida();
 
-        char[][] taulellEsperat = new char[3][3];
+        int tamañoEsperado = 3;
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
+            tamañoEsperado = Integer.parseInt(reader.readLine());
+            reader.close();
+        } catch (IOException e) {
+            tamañoEsperado = 3;
+            e.printStackTrace();
+        }
+
+        char[][] taulellEsperat = new char[tamañoEsperado][tamañoEsperado];
         char[][] taulellJoc = joc.getTaulell();
         Assertions.assertArrayEquals(taulellEsperat, taulellJoc);
     }

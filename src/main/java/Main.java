@@ -18,8 +18,10 @@
                         System.out.println("Cargar partida");
                         break;
                     case 3:
-                        System.out.println("Configuración");
+                        System.out.println(); //Case 3 = Menu de configuracion
+                        tui.manejarConfiguracion();
                         break;
+
                     case 4:
                         System.out.println("Salir");
                         break;

@@ -17,17 +17,17 @@ class JocTest {
         Joc joc = new Joc();
         joc.novaPartida();
 
-        int tamañoEsperado = 3;
+        int tamanyEsperat = 3;
         try {
             BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
-            tamañoEsperado = Integer.parseInt(reader.readLine());
+            tamanyEsperat = Integer.parseInt(reader.readLine());
             reader.close();
         } catch (IOException e) {
-            tamañoEsperado = 3;
+            tamanyEsperat = 3;
             e.printStackTrace();
         }
 
-        char[][] taulellEsperat = new char[tamañoEsperado][tamañoEsperado];
+        char[][] taulellEsperat = new char[tamanyEsperat][tamanyEsperat];
         char[][] taulellJoc = joc.getTaulell();
         Assertions.assertArrayEquals(taulellEsperat, taulellJoc);
     }

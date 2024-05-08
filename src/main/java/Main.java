@@ -6,38 +6,38 @@
     
             do {
                 tui.mostrarMenu();
-                x = tui.opcionEscollida();
+                x = tui.opcioEscollida();
     
                 switch (x) {
                     case 1:
-                        System.out.println("Nueva partida");
+                        System.out.println("Nova partida");
                         joc.novaPartida();
                         joc.mostrarTaulell();
-                        joc.solilicitarJugadaJugador1();
+                        joc.solicitarJugadaJugador1();
                         joc.mostrarTaulellActualitzat();
-                        joc.solilicitarJugadaJugador2();
+                        joc.solicitarJugadaJugador2();
                         if (joc.verificarGuanyador()) {
-                            System.out.println("¡Ha ganado un jugador!");
+                            System.out.println("¡Ha guanyat un jugador!");
                         } else if (joc.verificarEmpat()) {
-                            System.out.println("¡La partida ha terminado en empate!");
+                            System.out.println("¡La partida ha acabat en empat!");
                         }
 
 
                         break;
                     case 2:
-                        System.out.println("Cargar partida");
-                        joc.cargarPartida();
+                        System.out.println("Carregar partida");
+                        joc.carregarPartida();
                         break;
                     case 3:
                         System.out.println(); //Case 3 = Menu de configuracion
-                        tui.manejarConfiguracion();
+                        tui.manejarConfiguracio();
                         break;
 
                     case 4:
-                        System.out.println("Salir");
+                        System.out.println("Sortir");
                         break;
                     default:
-                        System.out.println("Opción incorrecta");
+                        System.out.println("Opció incorrecta");
                 }
             } while (x < 1 || x > 4);
         }

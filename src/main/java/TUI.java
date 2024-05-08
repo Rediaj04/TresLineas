@@ -9,39 +9,39 @@ public class TUI {
     } */
 
     public  void mostrarMenu(){
-        System.out.println("Elige un número de las opciones a escoger:");
-        System.out.println("1. Nueva partida");
-        System.out.println("2. Cargar partida");
-        System.out.println("3. Configuración");
-        System.out.println("4. Salir");
+        System.out.println("Trieu un nombre de les opcions a escollir:");
+        System.out.println("1. Nova partida");
+        System.out.println("2. Carregar partida");
+        System.out.println("3. Configuració");
+        System.out.println("4. Sortir");
     }
 
-    public void manejarConfiguracion() {
-        System.out.println("Hola te encuentras en configuracion.");
-        System.out.println("Que deseas realizar? Elige tu opcion\n");
-        System.out.println("1. Definir el tamaño de la tabla (ten en cuenta que por preterminado es 3. con valores entre 3 y 10. ");
-        System.out.println("2. Volver atras");
-        int opcionConfig = opcionEscollidaConfig();
+    public void manejarConfiguracio() {
+        System.out.println("Hola et trobes en configuració.");
+        System.out.println("Què vols fer? Tria la teva opció\n");
+        System.out.println("1. Definir el tamany de la tabla (tingues en compte que per preterminat és 3. amb valors entre 3 i 10.)");
+        System.out.println("2. Tornar enrere");
+        int opcionConfig = opcioEscollidaConfig();
 
         if (opcionConfig == 1) {
-            System.out.println("Por favor, introduce el nuevo valor para el tamaño de la tabla:");
-            int nuevoValor = leerTamaño();
+            System.out.println("Si us plau, introduïu el nou valor per a la mida de la taula:");
+            int nuevoValor = llegirTamany();
             Joc joc = new Joc();
-            joc.guardarConfiguracionTabla(nuevoValor);
+            joc.guardarConfiguracioTabla(nuevoValor);
         } else if (opcionConfig == 2) {
             mostrarMenu();
         } else {
-            System.out.println("Opción incorrecta, por favor elige una opción válida.\n");
-            manejarConfiguracion();
+            System.out.println("Opció incorrecta, si us plau escolleix una opció vàlida\n");
+            manejarConfiguracio();
         }
     }
-    public int leerTamaño() {
+    public int llegirTamany() {
         return sc.nextInt();
     }
-    public int opcionEscollidaConfig() {
+    public int opcioEscollidaConfig() {
         return sc.nextInt();
     }
-    public int opcionEscollida() {
+    public int opcioEscollida() {
         return sc.nextInt();
     }
 

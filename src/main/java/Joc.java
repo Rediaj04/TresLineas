@@ -19,7 +19,6 @@ public class Joc {
 
     private char[][] taulell;
     private short turn;
-
     int Tamaño_tabla = 3;
 
    public void novaPartida() {
@@ -34,6 +33,20 @@ public class Joc {
         taulell = new char[Tamaño_tabla][Tamaño_tabla];
         turn = 1;
     }
+
+    public void cargarPartida (){}
+    public void mostrarTaulell(){}
+    public void solilicitarJugadaJugador1() {}
+    public void mostrarTaulellActualitzat() {}
+
+    public void solilicitarJugadaJugador2() {}
+    public boolean verificarGuanyador() {
+        return false;
+    }
+    public boolean verificarEmpat() {
+       return false;
+    }
+
 
     public char[][] getTaulell() {
         return taulell;
@@ -73,4 +86,7 @@ public class Joc {
 
         return false;
     }
+
+
+
 }

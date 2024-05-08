@@ -1,14 +1,12 @@
 import jdk.jshell.spi.ExecutionControl;
-
-import java.io.FileWriter;
 import java.util.Scanner;
 
 public class TUI {
     private Scanner sc = new Scanner(System.in);
 
-    public  void mostrarTaulell(char taulell, short torn) throws ExecutionControl.NotImplementedException {
+   /* public void mostrarTaulell() { (char taulell, short torn) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException(" ");
-    }
+    } */
 
     public  void mostrarMenu(){
         System.out.println("Elige un número de las opciones a escoger:");
@@ -54,5 +52,7 @@ public class TUI {
         throw new ExecutionControl.NotImplementedException(" ");
 
     }
-}
+
+    }
+
 

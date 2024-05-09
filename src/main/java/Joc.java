@@ -22,6 +22,8 @@ public class Joc {
     int Tamany_tabla = 3;
 
     public void novaPartida(int tamanyTablero) {
+        System.out.println("Buena Suerte!");
+
         if (tamanyTablero > 0) {
             Tamany_tabla = tamanyTablero;
         } else {

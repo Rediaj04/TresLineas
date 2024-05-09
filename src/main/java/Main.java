@@ -12,7 +12,7 @@
     
                 switch (x) {
                     case 1:
-                        System.out.println("Nova partida");
+
                         int tamanyTablero = 3;
                         joc.novaPartida(tamanyTablero);
                         char[][] tablero = joc.getTaulell();

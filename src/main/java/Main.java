@@ -13,8 +13,10 @@
                 switch (x) {
                     case 1:
                         System.out.println("Nova partida");
-                        joc.novaPartida();
-                        joc.mostrarTaulell();
+                        int tamanyTablero = 3;
+                        joc.novaPartida(tamanyTablero);
+                        char[][] tablero = joc.getTaulell();
+                        tui.mostrarTaulell(tamanyTablero,tablero);
                         joc.solicitarJugadaJugador1();
                         joc.mostrarTaulellActualitzat();
                         joc.solicitarJugadaJugador2();
@@ -31,7 +33,10 @@
                         break;
                     case 3:
                         System.out.println(); //Case 3 = Menu de configuracion
-                        tui.manejarConfiguracio();
+                        int nuevoTamany = tui.manejarConfiguracio();
+                        if (nuevoTamany != -1) {
+                            joc.guardarConfiguracioTabla(nuevoTamany);
+                        }
                         break;
 
                     case 4:

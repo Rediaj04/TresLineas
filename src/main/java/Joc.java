@@ -21,14 +21,18 @@ public class Joc {
     private short turn;
     int Tamany_tabla = 3;
 
-   public void novaPartida() {
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
-            Tamany_tabla = Integer.parseInt(reader.readLine());
-            reader.close();
-        } catch (IOException e) {
-            System.out.println("Error en llegir el fitxer de configuració. S'usarà la mida predeterminada de 3.");
-            e.printStackTrace();
+    public void novaPartida(int tamanyTablero) {
+        if (tamanyTablero > 0) {
+            Tamany_tabla = tamanyTablero;
+        } else {
+            try {
+                BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
+                Tamany_tabla = Integer.parseInt(reader.readLine());
+                reader.close();
+            } catch (IOException e) {
+                System.out.println("Error al leer el archivo de configuración. Se utilizará el tamaño predeterminado de 3.");
+                e.printStackTrace();
+            }
         }
         taulell = new char[Tamany_tabla][Tamany_tabla];
         turn = 1;
@@ -37,7 +41,6 @@ public class Joc {
     public void carregarPartida (){
         System.out.println("Bievenido a cargar partida");
     }
-    public void mostrarTaulell(){}
     public void solicitarJugadaJugador1() {}
     public void mostrarTaulellActualitzat() {}
 

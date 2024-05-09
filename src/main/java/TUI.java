@@ -4,10 +4,6 @@ import java.util.Scanner;
 public class TUI {
     private Scanner sc = new Scanner(System.in);
 
-   /* public void mostrarTaulell() { (char taulell, short torn) throws ExecutionControl.NotImplementedException {
-        throw new ExecutionControl.NotImplementedException(" ");
-    } */
-
     public  void mostrarMenu(){
         System.out.println("Trieu un nombre de les opcions a escollir:");
         System.out.println("1. Nova partida");
@@ -16,7 +12,18 @@ public class TUI {
         System.out.println("4. Sortir");
     }
 
-    public void manejarConfiguracio() {
+    public void mostrarTaulell(int midaTaulell, char[][] taulell) {
+        // Mostrar el tablero
+        for (int i = 0; i < midaTaulell; i++) {
+            for (int j = 0; j < midaTaulell; j++) {
+                System.out.print(taulell[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+
+    public int manejarConfiguracio() {
         System.out.println("Hola et trobes en configuració.");
         System.out.println("Què vols fer? Tria la teva opció\n");
         System.out.println("1. Definir el tamany de la tabla (tingues en compte que per preterminat és 3. amb valors entre 3 i 10.)");
@@ -25,14 +32,13 @@ public class TUI {
 
         if (opcionConfig == 1) {
             System.out.println("Si us plau, introduïu el nou valor per a la mida de la taula:");
-            int nuevoValor = llegirTamany();
-            Joc joc = new Joc();
-            joc.guardarConfiguracioTabla(nuevoValor);
+            return llegirTamany();
         } else if (opcionConfig == 2) {
             mostrarMenu();
+            return -1;
         } else {
             System.out.println("Opció incorrecta, si us plau escolleix una opció vàlida\n");
-            manejarConfiguracio();
+            return manejarConfiguracio();
         }
     }
     public int llegirTamany() {

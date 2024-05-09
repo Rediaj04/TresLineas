@@ -14,37 +14,45 @@ class JocTest {
 
     @org.junit.jupiter.api.Test
     void novaPartida_taulell() {
-        Joc joc = new Joc();
-        joc.novaPartida();
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
 
-        int tamanyEsperat = 3;
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
-            tamanyEsperat = Integer.parseInt(reader.readLine());
-            reader.close();
+        Joc joc = new Joc();
+        joc.novaPartida(tamanyEsperat);
+
+        char[][] taulell = joc.getTaulell();
+
+        int tamanyObtingut = taulell.length;
+        Assertions.assertEquals(tamanyEsperat, tamanyObtingut, "El tamaño del tablero no coincide con el tamaño esperado");
+    }
+
+    private int obtenerTamanyTableroDesdeConfig() {
+        int tamany = 3;
+        try (BufferedReader reader = new BufferedReader(new FileReader("config.txt"))) {
+            String linea = reader.readLine();
+            if (linea != null && !linea.isEmpty()) {
+                tamany = Integer.parseInt(linea);
+            }
         } catch (IOException e) {
-            tamanyEsperat = 3;
+            System.err.println("Error al leer el archivo de configuración. Se utilizará el tamaño predeterminado.");
             e.printStackTrace();
         }
-
-        char[][] taulellEsperat = new char[tamanyEsperat][tamanyEsperat];
-        char[][] taulellJoc = joc.getTaulell();
-        Assertions.assertArrayEquals(taulellEsperat, taulellJoc);
+        return tamany;
     }
 
     @org.junit.jupiter.api.Test
     void novaPartida_jugador()  {
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
 
         Assertions.assertEquals(1, joc.getTurn());
     }
 
     @org.junit.jupiter.api.Test
     void jugar_partida()  {
-
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
 
         joc.jugar((short) 0, String.valueOf(0));
 
@@ -55,8 +63,9 @@ class JocTest {
     @ParameterizedTest
     @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_TaulellEnBlanc() {
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
 
         for (int fila = 0; fila < 3; fila++) {
             for (int columna = 0; columna < 3; columna++) {
@@ -67,8 +76,9 @@ class JocTest {
     @ParameterizedTest
     @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_UnaCasellaOcupada() {
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
         joc.jugar((short) 0, "0");
 
         for (int fila = 0; fila < 3; fila++) {
@@ -80,8 +90,9 @@ class JocTest {
     @ParameterizedTest
     @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_Jugador1Ganador() {
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
         joc.jugar((short) 0, "0");
         joc.jugar((short) 1, "1");
         joc.jugar((short) 0, "1");
@@ -93,8 +104,9 @@ class JocTest {
     @ParameterizedTest
     @CsvSource({"0,0" , "0,1" , "0,2" , "1.0", "1.1" , "1.2" , "2.0" , "2.1" , "2.2"})
     void testJugadaGuanyadora_Jugador2Ganador() {
+        int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
-        joc.novaPartida();
+        joc.novaPartida(tamanyEsperat);
         joc.jugar((short) 1, "0");
         joc.jugar((short) 0, "1");
         joc.jugar((short) 1, "1");

@@ -3,7 +3,9 @@
             TUI tui = new TUI();
             Joc joc = new Joc();
             int x;
-    
+            // getter en joc de tablero, para que tui lo muestre pedido desde main
+            //
+            //lo mismo con los demas.
             do {
                 tui.mostrarMenu();
                 x = tui.opcioEscollida();
@@ -22,10 +24,9 @@
                             System.out.println("¡La partida ha acabat en empat!");
                         }
 
-
                         break;
                     case 2:
-                        System.out.println("Carregar partida");
+                        System.out.println();
                         joc.carregarPartida();
                         break;
                     case 3:
@@ -34,10 +35,10 @@
                         break;
 
                     case 4:
-                        System.out.println("Sortir");
+                        System.out.println(); //Un printl en el metodo que se use "SALIR"
                         break;
                     default:
-                        System.out.println("Opció incorrecta");
+                        System.out.println(); //Un printl en el metodo que se use "OPCION INCORRECTA"
                 }
             } while (x < 1 || x > 4);
         }

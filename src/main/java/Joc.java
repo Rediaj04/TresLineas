@@ -34,7 +34,9 @@ public class Joc {
         turn = 1;
     }
 
-    public void carregarPartida (){}
+    public void carregarPartida (){
+        System.out.println("Bievenido a cargar partida");
+    }
     public void mostrarTaulell(){}
     public void solicitarJugadaJugador1() {}
     public void mostrarTaulellActualitzat() {}

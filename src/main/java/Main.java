@@ -1,15 +1,17 @@
     public class Main {
         public static void main(String[] args) {
             TUI tui = new TUI();
-            Joc joc = new Joc();
+            Joc joc = new Joc(tui);
             int x;
-            // getter en joc de tablero, para que tui lo muestre pedido desde main
-            //
-            //lo mismo con los demas.
+
             do {
+                //cambiar el turno al jugador 1
+                joc.setTurn((short)1);
+
+                //mostrar el menú y procesar la opcion seleccionada
                 tui.mostrarMenu();
                 x = tui.opcioEscollida();
-    
+
                 switch (x) {
                     case 1:
 
@@ -17,22 +19,35 @@
                         joc.novaPartida(tamanyTablero);
                         char[][] tablero = joc.getTaulell();
                         tui.mostrarTaulell(tamanyTablero,tablero);
-                        joc.solicitarJugadaJugador1();
-                        joc.mostrarTaulellActualitzat();
-                        joc.solicitarJugadaJugador2();
-                        if (joc.verificarGuanyador()) {
-                            System.out.println("¡Ha guanyat un jugador!");
-                        } else if (joc.verificarEmpat()) {
-                            System.out.println("¡La partida ha acabat en empat!");
-                        }
 
+                        while (true) {
+                            tui.recollirJugada(joc.getTurn());
+                            joc.solicitarJugadaJugador1();
+                            tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
+                            if (joc.verificarGuanyador()) {
+                                System.out.println("¡Ha guanyat el jugador 1!");
+                                break;
+                            } else if (joc.verificarEmpat()) {
+                                System.out.println("¡La partida ha acabat en empat!");
+                                break;
+                            }
+
+                            tui.recollirJugada(joc.getTurn());
+                            joc.solicitarJugadaJugador2();
+                            tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
+                            if (joc.verificarGuanyador()){
+                                System.out.println("¡Ha guanyat el Jugador 2!");
+                                break;
+                            }  else if (joc.verificarEmpat()){
+                                System.out.println("¡La partida ha acabat en empat!");
+                                break;
+                            }
+                        }
                         break;
                     case 2:
-                        System.out.println();
                         joc.carregarPartida();
                         break;
                     case 3:
-                        System.out.println(); //Case 3 = Menu de configuracion
                         int nuevoTamany = tui.manejarConfiguracio();
                         if (nuevoTamany != -1) {
                             joc.guardarConfiguracioTabla(nuevoTamany);

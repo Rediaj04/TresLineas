@@ -4,6 +4,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Joc {
+    public TUI tui;
+    private char[][] taulell;
+    private short turn;
+    int Tamany_tabla = 3;
+
+    public Joc(TUI tui){
+        this.tui = tui;
+    }
 
     public void guardarConfiguracioTabla(int valor) {
         try {
@@ -17,9 +25,7 @@ public class Joc {
         }
     }
 
-    private char[][] taulell;
-    private short turn;
-    int Tamany_tabla = 3;
+
 
     public void novaPartida(int tamanyTablero) {
         System.out.println("Buena Suerte!");
@@ -43,10 +49,24 @@ public class Joc {
     public void carregarPartida (){
         System.out.println("Bievenido a cargar partida");
     }
-    public void solicitarJugadaJugador1() {}
+    public void solicitarJugadaJugador1() {
+        tui.recollirJugada(turn);
+        int fila = tui.llegirTamany();
+        int columna = tui.llegirTamany();
+        jugar((short) fila, columna);
+        turn = 2;
+    }
     public void mostrarTaulellActualitzat() {}
 
-    public void solicitarJugadaJugador2() {}
+    public void solicitarJugadaJugador2() {
+        tui.recollirJugada(turn);
+        int fila = tui.llegirTamany();
+        int columna = tui.llegirTamany();
+        jugar((short) fila, columna);
+    }
+
+
+
     public boolean verificarGuanyador() {
         return false;
     }
@@ -63,11 +83,14 @@ public class Joc {
         return turn;
     }
 
-    public void jugar(short fila, String columna) {
+    public void setTurn(short turn) {
+        this.turn = turn;
+    }
+
+    public void jugar(short fila, int columna) {
         turn = (short) ((turn == 1) ? 2 : 1);
         char ficha = (turn == 1) ? 'X' : 'O';
-        taulell[fila][Integer.parseInt(columna)] = ficha;
-    }
+        taulell[fila][columna] = ficha;    }
 
     public boolean jugadaGuanyadora(short fila, short columna) {
 

@@ -1,7 +1,7 @@
         public class Main {
             public static void main(String[] args) {
                 TUI tui = new TUI();
-                Joc joc = new Joc(tui);
+                Joc joc = new Joc();
                 int x;
 
                 do {
@@ -22,7 +22,7 @@
 
                             while (true) {
                                 tui.recollirJugada(joc.getTurn());
-                                joc.solicitarJugadaJugador1();
+                           //     joc.solicitarJugadaJugador1();
                                 tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
                                 if (joc.verificarGuanyador()) {
                                     System.out.println("¡Ha guanyat el jugador 1!");
@@ -33,7 +33,7 @@
                                 }
 
                                 tui.recollirJugada(joc.getTurn());
-                                joc.solicitarJugadaJugador2();
+                              //  joc.solicitarJugadaJugador2();
                                 tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
                                 if (joc.verificarGuanyador()){
                                     System.out.println("¡Ha guanyat el Jugador 2!");

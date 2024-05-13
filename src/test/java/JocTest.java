@@ -54,7 +54,7 @@ class JocTest {
         Joc joc = new Joc();
         joc.novaPartida(tamanyEsperat);
 
-        joc.jugar((short) 0, String.valueOf(0));
+        joc.jugar((short) 0, Integer.parseInt(String.valueOf(0)));
 
         char[][] taulellDespresJugada = joc.getTaulell();
         char fichaEsperada = joc.getTurn() == 1 ? 'X' : 'O';
@@ -79,7 +79,7 @@ class JocTest {
         int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
         joc.novaPartida(tamanyEsperat);
-        joc.jugar((short) 0, "0");
+        joc.jugar((short) 0, 0);
 
         for (int fila = 0; fila < 3; fila++) {
             for (int columna = 0; columna < 3; columna++) {
@@ -93,11 +93,11 @@ class JocTest {
         int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
         joc.novaPartida(tamanyEsperat);
-        joc.jugar((short) 0, "0");
-        joc.jugar((short) 1, "1");
-        joc.jugar((short) 0, "1");
-        joc.jugar((short) 1, "2");
-        joc.jugar((short) 0, "2");
+        joc.jugar((short) 0, 0);
+        joc.jugar((short) 1, 1);
+        joc.jugar((short) 0, 1);
+        joc.jugar((short) 1, 2);
+        joc.jugar((short) 0, 2);
 
         Assertions.assertTrue(joc.jugadaGuanyadora((short) 0, (short) 2));
     }
@@ -107,11 +107,11 @@ class JocTest {
         int tamanyEsperat = obtenerTamanyTableroDesdeConfig();
         Joc joc = new Joc();
         joc.novaPartida(tamanyEsperat);
-        joc.jugar((short) 1, "0");
-        joc.jugar((short) 0, "1");
-        joc.jugar((short) 1, "1");
-        joc.jugar((short) 0, "2");
-        joc.jugar((short) 1, "2");
+        joc.jugar((short) 1, 0);
+        joc.jugar((short) 0, 1);
+        joc.jugar((short) 1, 1);
+        joc.jugar((short) 0, 2);
+        joc.jugar((short) 1, 2);
 
         Assertions.assertTrue(joc.jugadaGuanyadora((short) 1, (short) 2));
     }

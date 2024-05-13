@@ -4,14 +4,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class Joc {
-    public TUI tui;
     private char[][] taulell;
     private short turn;
     int Tamany_tabla = 3;
 
-    public Joc(TUI tui){
-        this.tui = tui;
+    public Joc(){
+        ;
     }
+
 
     public void guardarConfiguracioTabla(int valor) {
         try {
@@ -49,21 +49,21 @@ public class Joc {
     public void carregarPartida (){
         System.out.println("Bievenido a cargar partida");
     }
-    public void solicitarJugadaJugador1() {
+  /*  public void solicitarJugadaJugador1() {
         tui.recollirJugada(turn);
         int fila = tui.llegirTamany();
         int columna = tui.llegirTamany();
         jugar((short) fila, columna);
         turn = 2;
-    }
+    } */
     public void mostrarTaulellActualitzat() {}
 
-    public void solicitarJugadaJugador2() {
+   /* public void solicitarJugadaJugador2() {
         tui.recollirJugada(turn);
         int fila = tui.llegirTamany();
         int columna = tui.llegirTamany();
         jugar((short) fila, columna);
-    }
+    } */
 
 
 

@@ -36,7 +36,6 @@ public class TUI {
             System.out.println("Si us plau, introduïu el nou valor per a la mida de la taula:");
             return llegirTamany();
         } else if (opcionConfig == 2) {
-            mostrarMenu();
             return -1;
         } else {
             System.out.println("Opció incorrecta, si us plau escolleix una opció vàlida\n");

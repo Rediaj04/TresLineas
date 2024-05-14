@@ -6,7 +6,7 @@ import java.io.IOException;
 public class Joc {
     private char[][] taulell;
     private short turn;
-    int Tamany_tabla = 3;
+    private int Tamany_tabla = 3;
 
     public Joc(){
         ;
@@ -56,7 +56,14 @@ public class Joc {
         jugar((short) fila, columna);
         turn = 2;
     } */
-    public void mostrarTaulellActualitzat() {}
+    public void mostrarTaulellActualitzat() {
+        for (int i = 0; i < taulell.length; i++) {
+            for (int j = 0; j < taulell[i].length; j++) {
+                System.out.print(taulell[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
 
    /* public void solicitarJugadaJugador2() {
         tui.recollirJugada(turn);
@@ -74,7 +81,9 @@ public class Joc {
        return false;
     }
 
-
+    public void canviartTurn(){
+        turn = (short) ((turn == 1) ? 2 : 1);
+    }
     public char[][] getTaulell() {
         return taulell;
     }
@@ -88,9 +97,9 @@ public class Joc {
     }
 
     public void jugar(short fila, int columna) {
-        turn = (short) ((turn == 1) ? 2 : 1);
         char ficha = (turn == 1) ? 'X' : 'O';
-        taulell[fila][columna] = ficha;    }
+        taulell[fila][columna] = ficha;
+        mostrarTaulellActualitzat();} //Llama el método para mostrar el tablero actualizado
 
     public boolean jugadaGuanyadora(short fila, short columna) {
 

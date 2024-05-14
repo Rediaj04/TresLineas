@@ -1,6 +1,5 @@
 import jdk.jshell.spi.ExecutionControl;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class TUI {
@@ -55,10 +54,13 @@ public class TUI {
     public void fiDePartida(short guanyador) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException(" ");
     }
-    public void recollirJugada (short turn) {
+    public int[] recollirJugada (short turn) {
         System.out.println("Turno del jugador" + turn + ". Por favor, ingrese su jugada (fila columna)");
+        //solicitar entrada del jugador
         int fila = sc.nextInt();
         int columna = sc.nextInt();
+        //devolver coordenadas como array
+        return new int[]{fila, columna};
 
     }
 

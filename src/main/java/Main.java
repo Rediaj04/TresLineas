@@ -21,27 +21,26 @@
                             tui.mostrarTaulell(tamanyTablero,tablero);
 
                             while (true) {
-                                tui.recollirJugada(joc.getTurn());
-                           //     joc.solicitarJugadaJugador1();
-                                tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
+                                int[] coordenadas = tui.recollirJugada(joc.getTurn());
+                                int fila = coordenadas[0];
+                                int columna = coordenadas[1];
+
+                                //Llamar al método jugar con las coordenadas ingresadas
+                                joc.jugar((short)fila, columna);
+                                //Mostrar tablero actualizado
+                                // Verificar si hay un ganador o un empate después del movimiento del jugador actual
                                 if (joc.verificarGuanyador()) {
-                                    System.out.println("¡Ha guanyat el jugador 1!");
+                                    if (joc.getTurn() == 1) {
+                                        System.out.println("¡Ha guanyat el jugador 1!");
+                                    } else {
+                                        System.out.println("¡Ha guanyat el jugador 2!");
+                                    }
                                     break;
                                 } else if (joc.verificarEmpat()) {
                                     System.out.println("¡La partida ha acabat en empat!");
                                     break;
                                 }
-
-                                tui.recollirJugada(joc.getTurn());
-                              //  joc.solicitarJugadaJugador2();
-                                tui.mostrarTaulell(tamanyTablero, joc.getTaulell());
-                                if (joc.verificarGuanyador()){
-                                    System.out.println("¡Ha guanyat el Jugador 2!");
-                                    break;
-                                }  else if (joc.verificarEmpat()){
-                                    System.out.println("¡La partida ha acabat en empat!");
-                                    break;
-                                }
+                                joc.canviartTurn();
                             }
                             break;
                         case 2: //Este es el menú de cargar partida

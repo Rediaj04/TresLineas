@@ -8,7 +8,7 @@ public class Joc {
     private short turn;
     private int Tamany_tabla = 3;
 
-    public Joc(){
+    public Joc() {
         ;
     }
 
@@ -25,38 +25,31 @@ public class Joc {
         }
     }
 
-
-
-    public int novaPartida(int tamanyTablero) {
+    public void novaPartida() {
         System.out.println("Buena Suerte!");
-
-        if (tamanyTablero > 0) {
-            Tamany_tabla = tamanyTablero;
-        } else {
-            try {
-                BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
-                Tamany_tabla = Integer.parseInt(reader.readLine());
-                reader.close();
-            } catch (IOException e) {
-                System.out.println("Error al leer el archivo de configuración. Se utilizará el tamaño predeterminado de 3.");
-                e.printStackTrace();
-            }
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
+            Tamany_tabla = Integer.parseInt(reader.readLine());
+            reader.close();
+        } catch (IOException e) {
+            Tamany_tabla = 3;
         }
         taulell = new char[Tamany_tabla][Tamany_tabla];
         turn = 1;
-        return Tamany_tabla;
     }
 
-    public void carregarPartida (){
+
+    public void carregarPartida() {
         System.out.println("Bievenido a cargar partida");
     }
-  /*  public void solicitarJugadaJugador1() {
-        tui.recollirJugada(turn);
-        int fila = tui.llegirTamany();
-        int columna = tui.llegirTamany();
-        jugar((short) fila, columna);
-        turn = 2;
-    } */
+
+    /*  public void solicitarJugadaJugador1() {
+          tui.recollirJugada(turn);
+          int fila = tui.llegirTamany();
+          int columna = tui.llegirTamany();
+          jugar((short) fila, columna);
+          turn = 2;
+      } */
     public void mostrarTaulellActualitzat() {
         for (int i = 0; i < taulell.length; i++) {
             for (int j = 0; j < taulell[i].length; j++) {
@@ -74,17 +67,18 @@ public class Joc {
     } */
 
 
-
     public boolean verificarGuanyador() {
         return false;
     }
+
     public boolean verificarEmpat() {
-       return false;
+        return false;
     }
 
-    public void canviartTurn(){
+    public void canviartTurn() {
         turn = (short) ((turn == 1) ? 2 : 1);
     }
+
     public char[][] getTaulell() {
         return taulell;
     }
@@ -100,7 +94,8 @@ public class Joc {
     public void jugar(short fila, int columna) {
         char ficha = (turn == 1) ? 'X' : 'O';
         taulell[fila][columna] = ficha;
-        mostrarTaulellActualitzat();} //Llama el método para mostrar el tablero actualizado
+        mostrarTaulellActualitzat();
+    } //Llama el método para mostrar el tablero actualizado
 
     public boolean jugadaGuanyadora(short fila, short columna) {
 
@@ -126,7 +121,6 @@ public class Joc {
 
         return false;
     }
-
 
 
 }

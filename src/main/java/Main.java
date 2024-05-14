@@ -14,9 +14,7 @@
 
                     switch (x) {
                         case 1: //ESte es el menú de nueva partida
-
-                            int tamanyTablero = -1;
-                            joc.novaPartida(tamanyTablero);
+                            joc.novaPartida();
                             char[][] tablero = joc.getTaulell();
                             tui.mostrarTaulell(tablero);
 

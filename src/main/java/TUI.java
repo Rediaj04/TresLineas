@@ -13,10 +13,10 @@ public class TUI {
         System.out.println("4. Sortir");
     }
 
-    public void mostrarTaulell(int midaTaulell, char[][] taulell) {
+    public void mostrarTaulell(char[][] taulell) {
         // Mostrar el tablero
-        for (int i = 0; i < midaTaulell; i++) {
-            for (int j = 0; j < midaTaulell; j++) {
+        for (int i = 0; i < taulell.length; i++) {
+            for (int j = 0; j < taulell[i].length; j++) {
                 System.out.print(taulell[i][j] + " ");
             }
             System.out.println();
@@ -37,7 +37,7 @@ public class TUI {
         } else if (opcionConfig == 2) {
             return -1;
         } else {
-            System.out.println("Opció incorrecta, si us plau escolleix una opció vàlida\n");
+            System.out.println("Opció incorrecta, si us plau escolleix una opció vàlida");
             return manejarConfiguracio();
         }
     }
@@ -63,7 +63,10 @@ public class TUI {
         return new int[]{fila, columna};
 
     }
-
+    public void actualizarTamanyTaulell(int nouTamany) {
+        System.out.println("Actualizando tamaño del tablero a " + nouTamany + "x" + nouTamany);
+        // Puedes agregar aquí cualquier lógica necesaria para actualizar la interfaz de usuario con el nuevo tamaño del tablero
+    }
     }
 
 

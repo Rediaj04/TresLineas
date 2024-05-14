@@ -27,7 +27,7 @@ public class Joc {
 
 
 
-    public void novaPartida(int tamanyTablero) {
+    public int novaPartida(int tamanyTablero) {
         System.out.println("Buena Suerte!");
 
         if (tamanyTablero > 0) {
@@ -44,6 +44,7 @@ public class Joc {
         }
         taulell = new char[Tamany_tabla][Tamany_tabla];
         turn = 1;
+        return Tamany_tabla;
     }
 
     public void carregarPartida (){

@@ -3,7 +3,7 @@
                 TUI tui = new TUI();
                 Joc joc = new Joc();
                 int x;
-
+//IMPORTANTE: hay que modificar el metodo novaPartida, cuando no se escribe ningún valor de tabla, que el valor por defecto sea 3. Tambíen hay que modificar el caso 1 (linea 18-21).
                 do {
                     //cambiar el turno al jugador 1
                     joc.setTurn((short)1);
@@ -15,10 +15,10 @@
                     switch (x) {
                         case 1: //ESte es el menú de nueva partida
 
-                            int tamanyTablero = 3;
+                            int tamanyTablero = -1;
                             joc.novaPartida(tamanyTablero);
                             char[][] tablero = joc.getTaulell();
-                            tui.mostrarTaulell(tamanyTablero,tablero);
+                            tui.mostrarTaulell(tablero);
 
                             while (true) {
                                 int[] coordenadas = tui.recollirJugada(joc.getTurn());

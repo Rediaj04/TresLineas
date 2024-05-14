@@ -1,5 +1,9 @@
-        public class Main {
-            public static void main(String[] args) {
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+            public static void main(String[] args) throws IOException {
                 TUI tui = new TUI();
                 Joc joc = new Joc();
                 int x;
@@ -14,22 +18,21 @@
 
                     switch (x) {
                         case 1: //ESte es el menú de nueva partida
-
-                            int tamanyTablero = 3;
+                            BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
+                            int tamanyTablero;
+                            tamanyTablero = Integer.parseInt(reader.readLine());
+                            reader.close();
                             joc.novaPartida(tamanyTablero);
                             char[][] tablero = joc.getTaulell();
-                            tui.mostrarTaulell(tamanyTablero,tablero);
+                            tui.mostrarTaulell(tamanyTablero, tablero);
 
                             while (true) {
                                 int[] coordenadas = tui.recollirJugada(joc.getTurn());
                                 int fila = coordenadas[0];
                                 int columna = coordenadas[1];
+                                joc.jugar((short) fila, columna); //Llamar al método jugar con las coordenadas ingresadas
+                                if (joc.verificarGuanyador()) { //Mostrar tablero actualizado - Verificar si hay un ganador o un empate después del movimiento del jugador actual
 
-                                //Llamar al método jugar con las coordenadas ingresadas
-                                joc.jugar((short)fila, columna);
-                                //Mostrar tablero actualizado
-                                // Verificar si hay un ganador o un empate después del movimiento del jugador actual
-                                if (joc.verificarGuanyador()) {
                                     if (joc.getTurn() == 1) {
                                         System.out.println("¡Ha guanyat el jugador 1!");
                                     } else {
@@ -50,7 +53,7 @@
                             int nuevoTamany = tui.manejarConfiguracio();
                             if (nuevoTamany != -1) {
                                 joc.guardarConfiguracioTabla(nuevoTamany);
-                            } else{
+                            } else {
                                 x = -1;
                             }
                             break;

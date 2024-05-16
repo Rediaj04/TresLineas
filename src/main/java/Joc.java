@@ -25,8 +25,11 @@ public class Joc {
         }
     }
 
+    public int tomartamaño(){
+        return Tamany_tabla;
+    }
+
     public void novaPartida() {
-        System.out.println("Buena Suerte!");
         try {
             BufferedReader reader = new BufferedReader(new FileReader("config.txt"));
             Tamany_tabla = Integer.parseInt(reader.readLine());
@@ -40,16 +43,9 @@ public class Joc {
 
 
     public void carregarPartida() {
-        System.out.println("Bievenido a cargar partida");
+        // crear el metodo cargar partida
     }
 
-    /*  public void solicitarJugadaJugador1() {
-          tui.recollirJugada(turn);
-          int fila = tui.llegirTamany();
-          int columna = tui.llegirTamany();
-          jugar((short) fila, columna);
-          turn = 2;
-      } */
     public void mostrarTaulellActualitzat() {
         for (int i = 0; i < taulell.length; i++) {
             for (int j = 0; j < taulell[i].length; j++) {
@@ -58,14 +54,6 @@ public class Joc {
             System.out.println();
         }
     }
-
-   /* public void solicitarJugadaJugador2() {
-        tui.recollirJugada(turn);
-        int fila = tui.llegirTamany();
-        int columna = tui.llegirTamany();
-        jugar((short) fila, columna);
-    } */
-
 
     public boolean verificarGuanyador() {
         return false;

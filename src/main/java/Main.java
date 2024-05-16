@@ -2,8 +2,9 @@
             public static void main(String[] args) {
                 TUI tui = new TUI();
                 Joc joc = new Joc();
+                int tamañotablero = joc.tomartamaño();
+                tui.tamanytui(joc.tomartamaño());
                 int x;
-//IMPORTANTE: hay que modificar el metodo novaPartida, cuando no se escribe ningún valor de tabla, que el valor por defecto sea 3. Tambíen hay que modificar el caso 1 (linea 18-21).
                 do {
                     //cambiar el turno al jugador 1
                     joc.setTurn((short)1);
@@ -14,6 +15,7 @@
 
                     switch (x) {
                         case 1: //ESte es el menú de nueva partida
+                            tui.mostrar_mensaje_nova_partida();
                             joc.novaPartida();
                             char[][] tablero = joc.getTaulell();
                             tui.mostrarTaulell(tablero);
@@ -22,9 +24,7 @@
                                 int[] coordenadas = tui.recollirJugada(joc.getTurn());
                                 int fila = coordenadas[0];
                                 int columna = coordenadas[1];
-
-                                //Llamar al método jugar con las coordenadas ingresadas
-                                joc.jugar((short)fila, columna);
+                                joc.jugar((short)fila, columna); //Llamar al método jugar con las coordenadas ingresadas
                                 //Mostrar tablero actualizado
                                 // Verificar si hay un ganador o un empate después del movimiento del jugador actual
                                 if (joc.verificarGuanyador()) {
@@ -41,9 +41,12 @@
                                 joc.canviartTurn();
                             }
                             break;
+
                         case 2: //Este es el menú de cargar partida
+                            tui.mostrar_mensaje_carregar_partida();
                             joc.carregarPartida();
                             break;
+
                         case 3: //Este es el menú de configuración
                             int nuevoTamany = tui.manejarConfiguracio();
                             if (nuevoTamany != -1) {
@@ -54,12 +57,10 @@
                             break;
 
                         case 4: //Menú de salir
-                            System.out.println(); //Un printl en el metodo que se use "SALIR"
+                            tui.mostrar_mensaje_sortir();
                             break;
-                        default:
-                            System.out.println(); //Un printl en el metodo que se use "OPCION INCORRECTA"
+                        default: tui.mostra_mensaje_default();
                     }
-
                 }
                 while (x < 1 || x > 4);
             }

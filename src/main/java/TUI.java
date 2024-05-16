@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class TUI {
     private Scanner sc = new Scanner(System.in);
+    private int tamanyTablero;
 
     public  void mostrarMenu(){
         System.out.println("Trieu un nombre de les opcions a escollir:");
@@ -12,6 +13,51 @@ public class TUI {
         System.out.println("3. Configuració");
         System.out.println("4. Sortir");
     }
+    public  void mostrar_mensaje_nova_partida(){
+        System.out.println("Bona sort chanval/a!");
+    }
+    public  void mostrar_mensaje_carregar_partida(){
+        System.out.println("Carrega la teva partida aquí");
+    }
+    public  void mostrar_mensaje_sortir(){
+        System.out.println("Torna aviat");
+    }
+    public void mostra_mensaje_default(){
+        System.out.println("Opción no válida. Por favor, elige una opción válida.");
+    }
+
+    public void tamanytui(int tamany) {
+        this.tamanyTablero = tamany;
+    }
+    public int[] recollirJugada(short turn) {
+        int fila, columna;
+        do {
+            System.out.println("Turno del jugador " + turn);
+            System.out.println("Hola bones, que vols fer? \n 1. Desa la partida actual \n 2. Jugar el teu torn");
+            int x = sc.nextInt();
+            switch (x) {
+                case 1:
+                    System.out.println("Eligió 1");
+                    break;
+
+                case 2:
+                    System.out.println("Ingresa tu jugada (Fila Columna)");
+                    fila = sc.nextInt();
+                    columna = sc.nextInt();
+                    // Verificar que las coordenadas estén dentro de los límites del tablero
+                    if (fila < 0 || fila >= tamanyTablero || columna < 0 || columna >= tamanyTablero) {
+                        System.out.println("Coordenadas fuera de los límites del tablero. Inténtalo de nuevo.");
+                    } else {
+                        return new int[]{fila, columna};
+                    }
+                    break;
+
+                default:
+                    System.out.println("Opción no válida. Por favor, elige una opción válida.");
+            }
+        } while (true);
+    }
+
 
     public void mostrarTaulell(char[][] taulell) {
         // Mostrar el tablero
@@ -51,18 +97,11 @@ public class TUI {
         return sc.nextInt();
     }
 
+
     public void fiDePartida(short guanyador) throws ExecutionControl.NotImplementedException {
         throw new ExecutionControl.NotImplementedException(" ");
     }
-    public int[] recollirJugada (short turn) {
-        System.out.println("Turno del jugador" + turn + ". Por favor, ingrese su jugada (fila columna)");
-        //solicitar entrada del jugador
-        int fila = sc.nextInt();
-        int columna = sc.nextInt();
-        //devolver coordenadas como array
-        return new int[]{fila, columna};
 
-    }
     public void actualizarTamanyTaulell(int nouTamany) {
         System.out.println("Actualizando tamaño del tablero a " + nouTamany + "x" + nouTamany);
         // Puedes agregar aquí cualquier lógica necesaria para actualizar la interfaz de usuario con el nuevo tamaño del tablero
